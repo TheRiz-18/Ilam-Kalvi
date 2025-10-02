@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI-IBPS Clerk Syllabus</title>
+<link rel="icon" type="image/png" href="Ilam Kalvi icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%);
+            margin: 0;
+            padding: 10px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50px 0px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideIn 0.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+            color: #1e3c72;
+            font-size: 1.5em;
+            margin-top: 20px;
+            border-bottom: 2px solid #2a5298;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2a5298;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f7fc;
+            margin: 5px 0;
+            padding: 8px 18px ;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        table {
+            width: 100%;
+            max-width: 100%; /* Ensure table doesn't exceed viewport */
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #f4f7fc;
+            border-radius: 10px;
+            overflow: hidden;
+            table-layout: fixed; /* Force columns to respect width */
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            overflow-wrap: break-word; /* Wrap long text */
+        }
+        th {
+            background: #2a5298;
+            color: white;
+        }
+        /* Assign percentage widths to columns */
+        th:nth-child(1), td:nth-child(1) { width: 10%; } /* Sl No. */
+        th:nth-child(2), td:nth-child(2) { width: 40%; } /* Name of Test */
+        th:nth-child(3), td:nth-child(3) { width: 20%; } /* No. of Questions */
+        th:nth-child(4), td:nth-child(4) { width: 15%; } /* Max. Marks */
+        th:nth-child(5), td:nth-child(5) { width: 15%; } /* Duration */
+        .cutoff-container {
+            background: #f4f7fc;
+            border: 1px solid #cceeff;
+            border-radius: 12px;
+            padding: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .cutoff {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+        }
+        .cutoff p {
+            margin: 0;
+            padding: 5px 0;
+            font-size: 1em;
+            color: #191970;
+        }
+        .cutoff .label {
+            font-weight: 500;
+            color: #2a5298;
+            display: block;
+            font-size: 0.8em;
+            margin-bottom: 3px;
+        }
+        .cutoff .value {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #4169E1;
+            display: block;
+            line-height: 1.1;
+        }
+        /* ---- FOOTER STYLING ---- */
+        .footer-credit {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.3); /* Subtle separator line */
+            font-size: 0.9em;
+            color: var(--text-paragraph); 
+            font-weight: 400;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-credit a {
+            color: var(--accent-dark);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-credit a:hover {
+            color: #457b9d;
+        }
+
+        .footer-credit .fab {
+            margin-left: 0px;
+            font-size: 1.1em;
+        }
+        .note {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+/* ---- BRAND LOGO (Top Left) ---- */
+.brand-logo {
+
+display: flex;       /* Lays out children horizontally */
+    align-items: center; /* Vertically centers the logo and text */
+    justify-content: flex-start	; /* Horizontally centers the entire block */
+gap: 20%;
+border-bottom: 1px solid rgba(23,162,184, 0.6); /* Subtle separator line */
+
+
+
+}
+
+.brand-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    
+}
+ h1 {
+            text-align: left;
+            color: #2a5298;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .container {
+            max-width: 90%;
+                padding: 18px;
+                border-radius: 50px 0px;
+            }
+            h1 {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+            h2 {
+                font-size: 1.0em;
+                margin-top: 15px;
+                padding-bottom: 5px;
+            }
+            h3 {
+                font-size: 1em;
+                margin-top: 10px;
+            }
+            li {
+                padding: 6px 16px;
+                margin: 4px 0;
+                font-size: 10pt;
+                transform: none; /* Disable hover effect on mobile */
+            }
+            li:hover {
+                transform: none;
+                background: #f4f7fc;
+            }
+            table {
+                font-size: 0.6em; /* Reduce font size for mobile */
+                width: 100%;
+                max-width: 100%;
+                table-layout: fixed; /* Ensure columns respect assigned widths */
+            }
+            th, td {
+                padding: 6px; /* Reduce padding for mobile */
+                overflow-wrap: break-word; /* Wrap long text */
+                text-align: center; /* Center text for better fit */
+            }
+            /* Adjust column widths for mobile */
+            th:nth-child(1), td:nth-child(1) { width: 15%; }
+            th:nth-child(2), td:nth-child(2) { width: 35%; }
+            th:nth-child(3), td:nth-child(3) { width: 20%; }
+            th:nth-child(4), td:nth-child(4) { width: 15%; }
+            th:nth-child(5), td:nth-child(5) { width: 15%; }
+            tr:hover {
+                background: #f4f7fc; /* Disable hover effect on mobile */
+            }
+            .cutoff {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .cutoff p {
+                width: 100%;
+                font-size: 0.9em;
+            }
+            .cutoff .value {
+                font-size: 1.2em;
+            }
+            .footer-credit {
+                font-size: 0.8em;
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+.brand-logo img {
+    width: 75px;
+    height: 75px;
+}
+.brand-logo {
+gap: 10px;
+
+}
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="brand-logo">
+    <img src="Ilam Kalvi.png" alt="Ilam Kalvi Logo">
+        <h1>SBI-IBPS Clerk Syllabus <br>Prelims & Mains</h1>
+
+</div>
+
+        <h2>Common Syllabus - Prelims & Mains</h2>
+        
+        <h3>Reasoning Ability</h3>
+        <p class="note">The fundamental topics in this section are crucial for both stages of the exam. The questions in the Mains are typically more complex and require more steps to solve.</p>
+        <ul>
+            <li>Puzzles (Box-based, Floor-based, etc.)</li>
+            <li>Seating Arrangements (Circular, Linear, etc.)</li>
+            <li>Blood Relation</li>
+            <li>Direction and Distance</li>
+            <li>Syllogism</li>
+            <li>Coding-Decoding</li>
+            <li>Order & Ranking</li>
+            <li>Inequality</li>
+            <li>Alphanumeric Series</li>
+            <li>Data Sufficiency</li>
+        </ul>
+
+        <h3>Quantitative Aptitude</h3>
+        <p class="note">Many of the arithmetic and calculation-based topics are repeated, but they are often presented in a more challenging way or combined with other concepts in the Mains exam.</p>
+        <ul>
+            <li>Simplification and Approximation</li>
+            <li>Quadratic Equation</li>
+            <li>Data Interpretation (Bar, Line, Pie, Tabular)</li>
+            <li>Time and Work</li>
+            <li>Speed, Distance, & Time</li>
+            <li>Simple Interest & Compound Interest</li>
+            <li>Profit and Loss</li>
+            <li>Probability</li>
+            <li>Number Series (Missing Series and Wrong Series in Prelims, combined with others in Mains)</li>
+        </ul>
+
+        <h3>English Language</h3>
+        <p class="note">The Mains exam introduces more advanced versions of the Prelims topics, often with a "New Pattern" or multiple parts to a single question.</p>
+        <ul>
+            <li>Reading Comprehension</li>
+            <li>Cloze Test</li>
+            <li>Phrase Replacement</li>
+            <li>Odd Sentence Out & Para Jumbles</li>
+            <li>Sentence Completion</li>
+            <li>Paragraph Conclusion</li>
+            <li>Phrasal Verb Questions</li>
+            <li>Sentence Connectors</li>
+            <li>Word Rearrangement</li>
+        </ul>
+
+        <h2>Mains: Additional Topics</h2>
+
+        <h3>General Awareness</h3>
+        <p class="note">Enhance your knowledge for the SBI Clerk Mains in the General/Financial Awareness section with the following topics:</p>
+        <ul>
+            <li>National Current Affairs</li>
+            <li>International Current Affairs</li>
+            <li>State Current Affairs</li>
+            <li>Sports News</li>
+            <li>Central Government Schemes</li>
+            <li>Agreements/MoUs</li>
+            <li>Books & Authors</li>
+            <li>Summits & Conferences</li>
+            <li>Defense News</li>
+            <li>Science & Technology News</li>
+            <li>Banking & Insurance News</li>
+            <li>Static General Knowledge</li>
+            <li>Ranks, Reports, and Indexes</li>
+            <li>Business & Economy News</li>
+            <li>Important Days (Direct, Theme, Related Facts/News)</li>
+            <li>Obituaries</li>
+            <li>Key Appointments (National, International, Brand Ambassadors)</li>
+            <li>Important Awards & Honours</li>
+            <li>Union Budget</li>
+            <li>Current Static Information</li>
+            <li>Apps & Portals</li>
+            <li>Static Banking Knowledge</li>
+            <li>Committees & Councils</li>
+            <li>RBI-Related News</li>
+            <li>International Loans</li>
+            <li>Abbreviations</li>
+        </ul>
+
+        <h3>Computer Awareness</h3>
+        <p class="note">Prepare for the Computer Awareness section in the SBI Clerk Mains exam by focusing on the following topics:</p>
+        <ul>
+            <li>Fundamentals of Computer</li>
+            <li>Future of Computers</li>
+            <li>Security Tools</li>
+            <li>Networking Software & Hardware</li>
+            <li>History of Computers</li>
+            <li>Basic Knowledge of the Internet</li>
+            <li>Computer Languages</li>
+            <li>Computer Shortcut Keys</li>
+            <li>Database</li>
+            <li>Input and Output Devices</li>
+            <li>MS Office</li>
+        </ul>
+
+        <h2>Examination Structure</h2>
+
+        <h3>Phase-I: Preliminary Examination</h3>
+        <table>
+            <tr>
+                <th>Sl No.</th>
+                <th>Name of Test</th>
+                <th>No. of Questions</th>
+                <th>Max. Marks</th>
+                <th>Duration</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>English Language</td>
+                <td>30</td>
+                <td>30</td>
+                <td>20 min</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Numerical Ability</td>
+                <td>35</td>
+                <td>35</td>
+                <td>20 min</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Reasoning Aptitude</td>
+                <td>35</td>
+                <td>35</td>
+                <td>20 min</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td></td>
+                <td><strong>100</strong></td>
+                <td><strong>100</strong></td>
+                <td><strong>1 Hr (60 min)</strong></td>
+            </tr>
+        </table>
+
+        <h3>Phase-II: Mains Examination</h3>
+        <table>
+            <tr>
+                <th>Sl No.</th>
+                <th>Name of Test</th>
+                <th>No. of Questions</th>
+                <th>Max. Marks</th>
+                <th>Duration</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>General/Financial Awareness</td>
+                <td>50</td>
+                <td>50</td>
+                <td>35 min</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>General English</td>
+                <td>40</td>
+                <td>40</td>
+                <td>35 min</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Quantitative Aptitude</td>
+                <td>50</td>
+                <td>50</td>
+                <td>45 min</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Reasoning Ability & Computer Aptitude</td>
+                <td>50</td>
+                <td>60</td>
+                <td>45 min</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td></td>
+                <td><strong>190</strong></td>
+                <td><strong>200</strong></td>
+                <td><strong>2 Hr 40 min (160 min)</strong></td>
+            </tr>
+        </table>
+
+        <h2>Expected Cutoff</h2>
+        <div class="cutoff-container">
+            <div class="cutoff">
+                <p>
+                    <span class="label">Prelims Cutoff:</span>
+                    <span class="value">70 / 100</span>
+                </p>
+                <p>
+                    <span class="label">Mains Cutoff:</span>
+                    <span class="value">90 / 200</span>
+                </p>
+            </div>
+        </div>
+        <div class="footer-credit">
+            <span>Ilam Kalvi made by</span>
+            <a href="https://www.instagram.com/the_.riz" target="_blank">
+                <i class="fab fa-instagram"></i> the_.riz
+            </a>
+        </div>
+    </div>
+</body>
+</html>
