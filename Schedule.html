@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBI Clerk Study Schedule Selector</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #17a2b8, #138496);
+    background-size: 400% 400%;
+    animation: gradientBG 5s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .selector-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #007bff;
+    font-weight: 800;
+    text-align: left;
+    font-size: clamp(0.95em, 2vw, 1.8em);
+  }
+
+  p {
+    color: #6c757d;
+    margin-bottom: 25px;
+    font-size: clamp(0.8em, 2vw, 1.1em);
+  }
+
+  .button-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .schedule-card {
+    flex: 1 1 48%; /* each card takes nearly half width */
+    min-width: 100px; /* prevent shrink too much on small screens */
+    text-decoration: none;
+    display: block;
+    padding: 25px 15px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .schedule-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.08);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    z-index: 0;
+  }
+
+  .schedule-card:hover::before {
+    top: -20%;
+    left: -20%;
+  }
+
+  .schedule-card.prelims {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+    color: white;
+    box-shadow: 0 6px 15px rgba(23, 162, 184, 0.4);
+  }
+
+  .schedule-card.mains {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+  }
+
+  .schedule-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  }
+
+  .schedule-card h2 {
+    margin: 0 0 5px 0;
+    font-size: clamp(1em, 4vw, 1.4em);
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  .schedule-card span {
+    display: block;
+    font-size: clamp(0.4em, 2vw, 0.8em);
+    font-weight: 400;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+  }
+
+
+/* ---- BRAND LOGO (Top Left) ---- */
+.brand-logo {
+
+display: flex;       /* Lays out children horizontally */
+    align-items: center; /* Vertically centers the logo and text */
+    justify-content: flex-start	; /* Horizontally centers the entire block */
+gap: 13%;
+border-bottom: 1px solid rgba(23,162,184, 0.6); /* Subtle separator line */
+
+
+
+}
+
+.brand-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    
+}
+/* ---- FOOTER STYLING ---- */
+        .footer-credit {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.3); /* Subtle separator line */
+            font-size: 0.9em;
+            color: var(--text-paragraph); 
+            font-weight: 400;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-credit a {
+            color: var(--accent-dark);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-credit a:hover {
+            color: #457b9d;
+        }
+
+        .footer-credit .fab {
+            margin-left: 0px;
+            font-size: 1.1em;
+        }        .note {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+  /* Mobile adjustments: keep cards horizontal but shrink neatly */
+ @media (max-width: 600px) {
+    .button-grid {
+        gap: 8px; /* slightly smaller space */
+    }
+    .schedule-card {
+        flex: 1 1 48%; /* keep two cards horizontal */
+        padding: 15px 10px; /* keep some padding for text */
+    }
+    body {    padding: 25px;}
+.brand-logo img {
+    width: 75px;
+    height: 75px;
+}
+.brand-logo {
+gap: 1px;
+
+}      
+}
+@media (max-width: 600px) {
+  .schedule-card::before {
+    top: 0;          /* align to top */
+    left: 0;         /* align to left */
+    width: 100%;     /* slightly larger than card width */
+    height: 100%;    /* slightly larger than card height */
+    background: rgba(255,255,255,0.08); /* subtle shine */
+    transform: rotate(45deg); /* diagonal */
+    transition: none;          /* no animation */
+    z-index: 0;               /* behind text */
+  }
+.footer-credit {
+                font-size: 0.65em;
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="selector-container">
+<div class="brand-logo">
+    <img src="Ilam Kalvi.png" alt="Ilam Kalvi Logo">
+        <h1>Select Your Study Path</h1>
+</div>
+  <p>Choose your current focus for the 30-day preparation schedule.</p>
+  
+  <div class="button-grid">
+    <a href="Schedule-Prelims.html" class="schedule-card prelims">
+      <h2>Prelims<br>Schedule</h2>
+      <span>Speed & Accuracy Focus</span>
+    </a>
+
+    <a href="Schedule-Mains.html" class="schedule-card mains">
+      <h2>Mains<br>Schedule</h2>
+      <span>Advanced Topics & GA Focus</span>
+    </a>
+  </div>
+<div class="footer-credit">
+            <span>Ilam Kalvi made by</span>
+            <a href="https://www.instagram.com/the_.riz" target="_blank">
+                <i class="fab fa-instagram"></i> the_.riz
+            </a>
+        </div>
+
+</div>
+
+</body>
+</html>

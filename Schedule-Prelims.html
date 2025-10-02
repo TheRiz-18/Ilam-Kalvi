@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day SBI Clerk Prelims Study Schedule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* CSS for a Clean, Cool, and Neat UI */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f7f4; /* Light mint/teal background for a cool look */
+            color: #333;
+            margin: 0;
+            padding: 18px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .schedule-container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #ffffff;
+            border-radius: 50px 0px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            padding: 18px;
+        }
+
+        h3 {
+            color: #666;
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* TABLE STYLES - Default (Desktop) */
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px; /* Space between rows */
+            margin-top: 20px;
+            table-layout: fixed; /* Helps in consistent column sizing */
+        }
+
+        th {
+            background-color: #17a2b8;
+            color: white;
+            padding: 14px 10px;
+            text-align: center;
+            font-weight: 500;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        th:first-child { border-top-left-radius: 8px; }
+        th:last-child { border-top-right-radius: 8px; }
+
+        td {
+            background-color: #ffffff; 
+            padding: 14px 10px;
+            border: 1px solid #c9e0e5; /* Light border */
+            vertical-align: top;
+            font-size: 0.9em;
+            line-height: 1.4;
+            word-wrap: break-word; /* Essential for tiny columns */
+        }
+        
+        /* Phase Row Styling */
+        .phase-row td {
+            background-color: #d4edda; 
+            font-weight: 700;
+            color: #155724;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.1em;
+            border-top: 3px solid #17a2b8;
+            border-bottom: 3px solid #17a2b8;
+            border-left: 1.5px solid #17a2b8;
+            border-right: 1.5px solid #17a2b8;
+        }
+        
+        /* Special Row for Mock Test and Revision */
+        .mock-day td {
+            background-color: #ffe4b2;
+            color: #8a6d3b;
+            font-weight: 700;
+        }
+        
+        /* Last Days Styling */
+        .final-day td {
+            background-color: #dc3545;
+            color: white;
+            font-weight: 700;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* ---- BRAND LOGO (Top Left) ---- */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 25%;
+            border-bottom: 1px solid rgba(23,162,184, 0.6);
+        }
+
+        .brand-logo img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+        h1 {
+            color: #17a2b8;
+            text-align: left;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.8em;
+        }
+
+        /* ---- FOOTER STYLING ---- */
+        .footer-credit {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+            font-size: 0.9em;
+            color: #333;
+            font-weight: 400;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-credit a {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-credit a:hover {
+            color: #457b9d;
+        }
+
+        .footer-credit .fab {
+            margin-left: 0px;
+            font-size: 1.1em;
+        }
+        
+        /* ================================================= */
+        /* ============== MEDIA QUERY (Mobile) ============= */
+        /* ================================================= */
+
+        @media (max-width: 768px) {
+            
+            /* Aggressively reduce font size and padding for the entire table */
+            .schedule-table th, .schedule-table td {
+                padding: 4px 2px; /* Minimal padding */
+                font-size: 0.55em; /* Very small text */
+                line-height: 1.1; /* Minimal line height */
+            }
+
+            /* Day column needs to be the smallest */
+            .schedule-table tr td:first-child,
+            .schedule-table tr th:first-child {
+                width: 5%; /* Keep the Day column tiny */
+                min-width: 25px;
+            }
+            
+            /* Equally distribute the remaining 4 columns */
+            .schedule-table tr td:not(:first-child),
+            .schedule-table tr th:not(:first-child) {
+                width: 23.75%; /* (100% - 5%) / 4 = 23.75% each */
+            }
+
+            /* Adjust heading/logo sizes */
+            h1 { font-size: 0.9em; }
+            h3 { font-size: 0.75em; }
+            .brand-logo img {
+                width: 75px;
+                height: 75px;
+            }
+            .brand-logo {
+                gap: 10px;
+            }
+            .footer-credit {
+                font-size: 0.65em;
+                text-align: center;
+                gap: 5px;
+            }
+            
+            /* Make sure the colspan rows look good */
+            .phase-row td, .mock-day td, .final-day td {
+                font-size: 0.7em; /* Slightly larger text for merged cells */
+                padding: 8px 4px;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="schedule-container">
+        <div class="brand-logo">
+            <img src="Ilam Kalvi.png" alt="Ilam Kalvi Logo">
+            <h1>30-Day SBI/IBPS Clerk Prelims<br>Study Schedule</h1>
+        </div>
+
+        <h3>Focus on Speed, Accuracy, and Concept Clarity for High Attempts.</h3>
+        
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Quantitative Aptitude (35 Q)</th>
+                    <th>Reasoning Ability (35 Q)</th>
+                    <th>English Language (30 Q)</th>
+                    <th>Practice & Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="phase-row"><td colspan="5">Phase 1: Fundamentals & Speed Maths (Day 1 - 7)</td></tr>
+                <tr>
+                    <td>1</td>
+                    <td>Simplification (50 Q) & Tables/Squares/Cubes</td>
+                    <td>Puzzles: Seating Arrangement (Circular-Inward)</td>
+                    <td>Grammar: Nouns, Pronouns, & Daily Editorial</td>
+                    <td>Mini-Mock (Q/R/E) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Approximation (50 Q) & Percentage to Fraction</td>
+                    <td>Puzzles: Linear Arrangement (Single Row)</td>
+                    <td>Grammar: Adjectives, Adverbs, & 1 RC Set</td>
+                    <td>Mini-Mock (Q/R/E) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Quadratic Equations (50 Q) & Basic Formulas</td>
+                    <td>Syllogism (Basic 2/3 Statement)</td>
+                    <td>Vocabulary: 20 High-Frequency Words & Cloze Test</td>
+                    <td>Timed Sectional Test (QA) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Number Series (Missing/Wrong) (50 Q)</td>
+                    <td>Inequality (Direct & Coded)</td>
+                    <td>Error Detection (Tenses, SVA) & Para Jumbles (3-5 Sentences)</td>
+                    <td>Timed Sectional Test (RA) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Ratio & Proportion & Average (Concepts + 20 Q)</td>
+                    <td>Alphanumeric Series & Coding-Decoding (Simple)</td>
+                    <td>Fill in the Blanks (Single/Double) & Phrasal Verbs</td>
+                    <td>Timed Sectional Test (EL) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Profit & Loss & Simple Interest (Concepts + 20 Q)</td>
+                    <td>Blood Relations & Direction Sense</td>
+                    <td>Sentence Improvement & Revision of Grammar Rules</td>
+                    <td>Mock Test (Prelims Level) - Untimed</td>
+                </tr>
+                <tr class="mock-day">
+                    <td>7</td>
+                    <td colspan="4">Mock Test 1 (PRELIMS) - Timed & Full Analysis (Crucial step!)</td>
+                </tr>
+
+                <tr class="phase-row"><td colspan="5">Phase 2: Core Topics & Mock Practice (Day 8 - 14)</td></tr>
+                <tr>
+                    <td>8</td>
+                    <td>Time & Work & Pipes/Cisterns (Concepts + 20 Q)</td>
+                    <td>Puzzles: Floor Based Puzzles</td>
+                    <td>Reading Comprehension (Story Based)</td>
+                    <td>Analysis of Mock 1 Weak Areas</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Time, Speed & Distance & Boats/Streams (Concepts + 20 Q)</td>
+                    <td>Puzzles: Box/Stack Based Puzzles</td>
+                    <td>Cloze Test (Advanced) & Revision of Vocabulary</td>
+                    <td>Timed Sectional Test (QA) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Compound Interest & Mixture/Allegation (Concepts + 20 Q)</td>
+                    <td>Input-Output (Basic Number/Letter Shifting)</td>
+                    <td>Error Detection (Prepositions, Conjunctions)</td>
+                    <td>Timed Sectional Test (RA) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Data Interpretation (Bar/Line/Pie Chart) (4 Sets)</td>
+                    <td>Data Sufficiency (2 Statement Questions)</td>
+                    <td>Para Jumbles (Themed) & Starters/Connectors</td>
+                    <td>Timed Sectional Test (EL) & Analysis</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Arithmetic Mix Practice (30 Q) & Revision of Formulas</td>
+                    <td>Reasoning Mix Practice (30 Q) & Revision of Puzzles</td>
+                    <td>English Mix Practice (30 Q) & Daily Editorial</td>
+                    <td>Mock Test (Prelims Level) - Untimed</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>QA Sectional Test (Timed)</td>
+                    <td>RA Sectional Test (Timed)</td>
+                    <td>EL Sectional Test (Timed)</td>
+                    <td>Full Revision of All Concepts</td>
+                </tr>
+                <tr class="mock-day">
+                    <td>14</td>
+                    <td colspan="4">Mock Test 2 (PRELIMS) - Timed & Full Analysis (Aim for high attempts!)</td>
+                </tr>
+                
+                <tr class="phase-row"><td colspan="5">Phase 3: High-Speed Practice & Full Mocks (Day 15 - 21)</td></tr>
+                <tr>
+                    <td>15</td>
+                    <td colspan="4">Mock 3 & Full Analysis (Focus on reducing time on known questions)</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Speed Maths Blitz (100 Q in 15 mins)</td>
+                    <td>Puzzles (5 Sets in 20 mins)</td>
+                    <td>RC (2 Sets in 15 mins)</td>
+                    <td>Sectional Test (QA)</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>DI Practice (3 Sets)</td>
+                    <td>Puzzles (5 Sets)</td>
+                    <td>Error/Para Jumble Practice (30 Q)</td>
+                    <td>Sectional Test (RA)</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td colspan="4">Mock 4 & Full Analysis (Identify 2 main weak areas)</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Focused Practice on Weak QA Area 1 & 2</td>
+                    <td>Focused Practice on Weak RA Area 1 & 2</td>
+                    <td>Focused Practice on Weak EL Area 1 & 2</td>
+                    <td>Sectional Test (EL)</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Arithmetic Mix Practice (40 Q)</td>
+                    <td>Reasoning Mix Practice (40 Q)</td>
+                    <td>English Mix Practice (40 Q)</td>
+                    <td>Mock Test (Prelims Level) - Untimed</td>
+                </tr>
+                <tr class="mock-day">
+                    <td>21</td>
+                    <td colspan="4">Mock 5 & Full Analysis (Simulate Exam Time 9:00 AM - 10:00 AM)</td>
+                </tr>
+                
+                <tr class="phase-row"><td colspan="5">Phase 4: Final Sprint & Revision (Day 22 - 30)</td></tr>
+                <tr>
+                    <td>22</td>
+                    <td colspan="4">Mock 6 & Analysis</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td colspan="4">Focused Revision: Formulas & Grammar Rules</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td colspan="4">Mock 7 & Analysis</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td colspan="4">Focused Revision: Puzzles Strategy & English Vocabulary</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td colspan="4">Mock 8 & Analysis</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td colspan="4">Speed Test: Attempt 3 Mini-Mocks (10 mins each)</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td colspan="4">Mock 9 & Analysis</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td colspan="4">Last-Minute Revision: Only Notes and Shortcuts. (No new mocks)</td>
+                </tr>
+                <tr class="final-day">
+                    <td>30</td>
+                    <td colspan="4">RELAX & REVIEW: NO Studying. Get good sleep, eat well, and stay calm! 🥳</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer-credit">
+            <span>Ilam Kalvi made by</span>
+            <a href="https://www.instagram.com/the_.riz" target="_blank">
+                <i class="fab fa-instagram"></i>
+                the_.riz
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
