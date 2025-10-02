@@ -194,6 +194,8 @@
             margin-top: 20px;
 padding-bottom: 20px;
     border-bottom: 2px solid #4a0072;
+width: fit-content; 
+    max-width: 100%;
 
         }
 
@@ -1021,12 +1023,13 @@ padding: 5px;
             <span>Ilam Kalvi made by</span>
             <a href="https://www.instagram.com/the_.riz" target="_blank">
                 <i class="fab fa-instagram"></i>
-                the_.riz 
+                the_.riz
             </a>
         </div>
     </div>
 
     <div id="background">
+        <div><span></span></div>
         <div><span></span></div>
         <div><span></span></div>
         <div><span></span></div>
@@ -1269,10 +1272,66 @@ padding: 5px;
             }
         };
 
+        // NEW: Helper function to extract the direct PDF link from the Google Docs Viewer URL
+        function getDownloadUrl(gviewUrl) {
+            try {
+                // Use a temporary URL object to parse the query parameters
+                const a = document.createElement('a');
+                a.href = gviewUrl;
+                const params = new URLSearchParams(a.search);
+                const rawUrl = params.get('url');
+
+                // Return the 'url' parameter which contains the direct raw file link
+                return rawUrl || gviewUrl;
+            } catch (e) {
+                console.error("Error parsing GView URL:", e);
+                return gviewUrl; // Fallback
+            }
+        }
+
+        // NEW: Function to force a download using the Fetch API and Blobs
+        function handleDownload(url, filename) {
+            // Check if the URL is valid before proceeding
+            if (!url || url.includes('gview')) {
+                // If the direct link is not extracted or it's still the viewer, try the Open link fallback
+                console.warn('Invalid download URL. Falling back to open in new tab.');
+                window.open(url, '_blank');
+                return;
+            }
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    // Create a temporary anchor element
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = filename;
+                    
+                    // Simulate a click to start the download
+                    document.body.appendChild(link);
+                    link.click();
+                    
+                    // Clean up the temporary link and revoke the URL
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+                })
+                .catch(error => {
+                    console.error('Download failed:', error);
+                    alert('Download failed! Opening the document in a new tab instead.');
+                    window.open(url, '_blank');
+                });
+        }
+
+
         // Show section (Prelims or Mains)
         function showSection(section) {
             currentSection = section;
-            currentTopic = Object.keys(contentData[section])[0]; 
+            currentTopic = Object.keys(contentData[section])[0];  
             currentTab = 'videos';
 
             document.querySelectorAll('.section').forEach(s => {
@@ -1361,6 +1420,11 @@ padding: 5px;
                     contentHtml = '<p class="empty-message">No PDF notes found for this topic.</p>';
                 } else {
                     data.pdfs.forEach(item => {
+                        // FIX: Get the direct raw URL for download, and set a clean filename
+                        const downloadUrl = getDownloadUrl(item.url); 
+                        const filename = `${item.title.replace(/[^\w\s]/gi, '')}.pdf`.replace(/\s+/g, '_'); // Sanitize filename
+                        const escapedDownloadUrl = downloadUrl.replace(/'/g, "\\'"); // Escape single quotes for inline JS call
+
                         contentHtml += `
                             <div class="card">
                                 <div class="pdf-preview">
@@ -1370,7 +1434,7 @@ padding: 5px;
                                 <p>${item.description}</p>
                                 <div class="pdf-buttons">
                                     <a href="${item.url}" target="_blank">Open</a>
-                                    <a href="${item.url}" download>Download</a>
+                                    <a href="javascript:void(0);" onclick="handleDownload('${escapedDownloadUrl}', '${filename}')">Download</a>
                                 </div>
                             </div>
                         `;
@@ -1392,6 +1456,5 @@ padding: 5px;
                 window.scrollTo(0, 0);
             };
         });
-    </script>
-</body>
+    </script></body>
 </html>
